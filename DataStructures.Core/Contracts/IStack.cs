@@ -1,6 +1,6 @@
 ﻿namespace DataStructures.Core.Contracts
 {
-    interface IStack<T>
+    public interface IStack<T>
     {
         void Push(T item);
         T Pop();

@@ -2,7 +2,7 @@
 
 namespace DataStructures.Core.Contracts
 {
-    interface IList<T> : IEnumerable<T>
+    public interface IList<T> : IEnumerable<T>
     {
         void PushHead(T item);
         void PushTail(T item);
