@@ -20,59 +20,17 @@ namespace DataStructures.Core
             }
         }
 
-        private class ListEnumerator : IEnumerator<T>
-        {
-            private ListItem currentItem;
-            private ListItem head;
-
-            public ListEnumerator(ListItem item)
-            {
-                head = item;
-            }
-
-            public void Dispose()
-            {
-                head = null;
-                currentItem = null;
-            }
-
-            public bool MoveNext()
-            {
-                if (currentItem == null)
-                {
-                    currentItem = head;
-                    return head != null;
-                }
-
-                if (currentItem.Next == null)
-                    return false;
-                currentItem = currentItem.Next;
-                return true;
-            }
-
-            public void Reset()
-            {
-
-                currentItem = null;
-            }
-
-            public T Current
-            {
-                get { return currentItem.Value; }
-            }
-
-            object IEnumerator.Current
-            {
-                get { return Current; }
-            }
-        }
-
         private ListItem head;
         private ListItem tail;
 
         public IEnumerator<T> GetEnumerator()
         {
-            return new ListEnumerator(head);
+            var current = head;
+            while (current != null)
+            {
+                yield return current.Value;
+                current = current.Next;
+            }
         }
 
         IEnumerator IEnumerable.GetEnumerator()
