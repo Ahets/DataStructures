@@ -44,9 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IDynamicArrayTests.cs" />
     <Compile Include="Contracts\IListTests.cs" />
     <Compile Include="Contracts\IQueueTests.cs" />
     <Compile Include="Contracts\IStackTests.cs" />
+    <Compile Include="DynamicArrayListTests.cs" />
     <Compile Include="ListTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueueTests.cs" />
