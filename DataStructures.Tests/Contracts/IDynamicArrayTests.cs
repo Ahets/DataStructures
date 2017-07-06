@@ -110,7 +110,7 @@ namespace DataStructures.Tests.Contracts
         }
 
         [Test]
-        public void InsertAtIndex()
+        public void RemoveAtIndex()
         {
             var array = new T { 1, 2, 3, 4, 5 };
 
