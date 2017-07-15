@@ -18,9 +18,9 @@ namespace DataStructures.Core
 
         public T this[int index]
         {
-            get { throw new NotImplementedException(); }
+            get { return _arr[index]; }
 
-            set { throw new NotImplementedException(); }
+            set { _arr[index] = value; }
         }
 
         public int Count
@@ -82,12 +82,29 @@ namespace DataStructures.Core
 
         public bool Remove(T item)
         {
-            throw new NotImplementedException();
+            for (int index = 0; index < _count; index++)
+            {
+                if (item.Equals(_arr[index]))
+                {
+                    for (int it = index; it < _count; it++)
+                    {
+                        _arr[it] = _arr[it + 1];
+                    }
+                    _count--;
+                    return true;
+                }
+            }
+            return false;
         }
 
         public void RemoveAt(int index)
         {
-            throw new NotImplementedException();
+            ValidateIndex(index);
+            for (int it = index; it < _count; it++)
+            {
+                _arr[it] = _arr[it + 1];
+            }
+            _count--;
         }
 
         IEnumerator IEnumerable.GetEnumerator()
